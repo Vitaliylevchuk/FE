@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+     android:background="@drawable/screen"
+     android:id="@+id/layout0">
+
+    <LinearLayout
+         android:layout_height="120dp"
+         android:layout_width="match_parent"
+         android:weightSum="100"
+         android:background="@color/viewBckgColor.grey"
+         android:padding="0px"
+         android:orientation="vertical"
+         android:id="@+id/topPlane">
+
+        <RelativeLayout
+             android:layout_height="wrap_content"
+             android:layout_width="330dp"
+             android:layout_marginLeft="10dp"
+             android:layout_marginTop="22dp">
+
+            <EditText
+                 android:layout_height="wrap_content"
+                 android:layout_width="290dp"
+                 android:scrollbarStyle="insideInset"
+                 android:editable="true"
+                 android:textSize="12sp"
+                 android:singleLine="true"
+                 android:textColor="@color/viewFontColor.red"
+                 android:enabled="true"
+                 android:scrollHorizontally="true"
+                 android:focusable="true"
+                 android:layout_gravity="bottom"
+                 android:scrollbars="horizontal"
+                 android:selectAllOnFocus="true"
+                 android:gravity="left"
+                 android:backgroundTint="@color/viewBckgColor.lightGrey"
+                 android:textCursorDrawable="@drawable/cursor"
+                 android:inputType="text"
+                 android:overScrollMode="always"
+                 android:id="@+id/pathView" />
+
+            <TextView
+                 android:layout_height="40dp"
+                 android:layout_width="wrap_content"
+                 android:gravity="center"
+                 android:textSize="18sp"
+                 android:layout_marginLeft="285dp"
+                 android:maxLines="1"
+                 android:text="FIND"
+                 android:id="@+id/findButton" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+             android:layout_height="120dp"
+             android:layout_width="match_parent"
+             android:weightSum="100"
+             android:background="@color/viewBckgColor.grey"
+             android:padding="0px"
+             android:orientation="horizontal">
+
+            <SeekBar
+                 android:layout_height="wrap_content"
+                 android:layout_width="0dp"
+                 android:thumb="@android:color/transparent"
+                 android:padding="0px"
+                 android:progressBackgroundTint="@color/viewBckgColor.lightGrey"
+                 android:progressTint="#74FEFF"
+                 android:layout_marginLeft="-17dp"
+                 android:layout_weight="100"
+                 android:id="@+id/seekBar" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="150dp"
+         android:visibility="gone"
+         android:background="@color/viewColorBackground"
+         android:orientation="vertical"
+         android:paddingBottom="15dp"
+         android:paddingLeft="15dp"
+         android:layout_marginLeft="205dp"
+         android:layout_marginTop="70dp"
+         android:id="@+id/sideView">
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:gravity="center"
+             android:textSize="20sp"
+             android:layout_marginTop="15dp"
+             android:text="Внешний вид" />
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:gravity="center"
+             android:textSize="20sp"
+             android:layout_marginTop="15dp"
+             android:text="Настройки" />
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:gravity="center"
+             android:textSize="20sp"
+             android:layout_marginTop="15dp"
+             android:text="Подробнее" />
+
+    </LinearLayout>
+
+    <ScrollView
+         android:layout_height="755dp"
+         android:layout_width="match_parent"
+         android:layout_marginTop="70dp"
+         android:id="@+id/scrollView">
+
+        <LinearLayout
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             android:orientation="vertical"
+             android:id="@+id/folderView">
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

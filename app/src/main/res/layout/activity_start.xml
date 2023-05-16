@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent">
+
+    <ImageView
+         android:layout_height="match_parent"
+         android:layout_width="match_parent"
+         android:background="@drawable/screen" />
+
+    <LinearLayout
+         android:layout_height="match_parent"
+         android:layout_width="match_parent"
+         android:gravity="center"
+         android:orientation="vertical">
+
+        <LinearLayout
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:gravity="center"
+             android:orientation="vertical">
+
+            <EditText
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:editable="true"
+                 android:scrollbarStyle="insideInset"
+                 android:textSize="15sp"
+                 android:singleLine="true"
+                 android:textColor="@color/viewBckgColor.grey"
+                 android:enabled="true"
+                 android:scrollHorizontally="true"
+                 android:focusable="true"
+                 android:scrollbars="horizontal"
+                 android:layout_marginBottom="40dp"
+                 android:selectAllOnFocus="true"
+                 android:gravity="center"
+                 android:backgroundTint="@color/viewBckgColor.grey"
+                 android:textCursorDrawable="@drawable/cursor"
+                 android:inputType="text"
+                 android:overScrollMode="always"
+                 android:id="@+id/pathSelector"
+                 android:text="trft" />
+
+            <Button
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:background="@color/teal_200"
+                 android:text="Switch to File Explorer "
+                 android:id="@+id/button123" />
+
+            <Button
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:background="@color/teal_200"
+                 android:text="Use default path"
+                 android:id="@+id/button456" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
