@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     public static int themeBckgColor;
     public static int themeFontColor;
     public int listLength;
-    public static Folder targetFolder;
+    public static FileHandler targetFolder;
     public static SeekBar seekBar;
     public static Themes theme;
     
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE_PERMISSION_CODE);
         }
 
-        final Folder f = new Folder("/storage/emulated/0");
+        final FileHandler f = new FileHandler("/storage/emulated/0");
         f.mkdir("com.mvlcomp.rpg_v");
         f.setPath(f.getPath()+"/com.mvlcomp.rpg_v");
         f.mkdir("files");
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         if(f.getFromTargetLib() == null){
             f.mkfile("save0.txt");
         }
-        final FileInformative saveFile = new FileInformative(new File(f.getPath() + "/save0.txt"));
+        final FileHandler saveFile = new FileHandler(new File(f.getPath() + "/save0.txt"));
         
         switch(saveFile.getFileContent(1)){
             case "R":{
@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
                     if(hasCharIA(Variables.path, '/')[0] < 3){
                             Variables.path = startPath;
                     }
-                    Folder folder = new Folder(String.valueOf(pathView.getText()));
+                    FileHandler folder = new FileHandler(String.valueOf(pathView.getText()));
                     save(saveFile, 'R', Variables.path);
                     Toast toast = Toast.makeText(MainActivity.this, "Save", Toast.LENGTH_LONG);
 	            	toast.show();
@@ -300,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
     
     public int id;
     
-    public void configuringTextView(TextView folderContentObj, LinearLayout.LayoutParams layoutParams, FileInformative saveFile, int themeFontColor, int index, String name){
+    public void configuringTextView(TextView folderContentObj, LinearLayout.LayoutParams layoutParams, FileHandler saveFile, int themeFontColor, int index, String name){
         folderContentObj.setTextSize(18);
         folderContentObj.setLayoutParams(layoutParams);
         folderContentObj.setBackgroundResource(R.drawable.text_view);
@@ -369,13 +369,13 @@ public class MainActivity extends AppCompatActivity {
     }
     
     public static void loadTargetFolder(){
-        targetFolder = new Folder(Variables.path);
+        targetFolder = new FileHandler(Variables.path);
     }
     
     public static int folderLength;
     public static final DecimalFormat df = new DecimalFormat("0.00");
     
-    public void save(FileInformative saveFile, char theme, String path){
+    public void save(FileHandler saveFile, char theme, String path){
         String inputData;
         inputData = String.valueOf(theme) + "\n" + path;
         saveFile.rewriteFile(inputData);
