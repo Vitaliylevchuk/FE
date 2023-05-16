@@ -5,13 +5,9 @@ import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.*;
 import java.text.DecimalFormat;
-import android.provider.Settings;
 import android.view.*;
 import android.widget.*;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.net.Uri;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -167,8 +163,6 @@ public class MainActivity extends AppCompatActivity {
         undoView.setWidth(35);
         undoView.setText("  ..");
         undoView.setBackgroundResource(R.drawable.text_view);
-        System.out.println(themeFontColor);
-        System.out.println(R.color.viewFontColor_red);
         undoView.setHintTextColor(R.color.viewFontColor_green);
         
         undoView.setOnClickListener(new View.OnClickListener(){
@@ -251,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkPermission(String permission, int requestCode){
         if(ContextCompat.checkSelfPermission(MainActivity.this, permission) == PackageManager.PERMISSION_DENIED){
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission}, requestCode);
             Variables.permissionsChecked = true;
             Variables.permissionsCheckedSuccessful = true;
             //ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission}, requestCode);

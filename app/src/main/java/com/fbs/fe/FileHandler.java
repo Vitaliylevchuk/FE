@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+@SuppressWarnings("all")
 public class FileHandler {
     public static File[] objectsInFolder;
     public static String path;
@@ -23,7 +24,7 @@ public class FileHandler {
 
     public FileHandler(String path){
         this.path = path;
-        this.file = new File(path);
+        file = new File(path);
         absPath = file.getAbsolutePath();
         name = file.getName();
         parent = file.getParent();
