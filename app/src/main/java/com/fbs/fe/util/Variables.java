@@ -1,4 +1,4 @@
-package com.fbs.fe;
+package com.fbs.fe.util;
 
 public class Variables {
     public static String[] names;

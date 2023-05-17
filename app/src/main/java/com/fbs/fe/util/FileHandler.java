@@ -1,7 +1,7 @@
-package com.fbs.fe;
+package com.fbs.fe.util;
 
 import android.icu.text.DecimalFormat;
-import com.fbs.util.LineGetter;
+import com.fbs.fe.MainActivity;
 
 import java.io.File;
 import java.io.FileReader;

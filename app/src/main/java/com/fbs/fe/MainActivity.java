@@ -10,11 +10,10 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
+import com.fbs.fe.util.*;
 import java.io.File;
 //import android.content.Context;
 //import android.Manifest;
-//import com.fbs.app.SaveFileHandler;
 //import android.view.animation.Animation;
 //import android.view.animation.AnimationUtils;
 //import androidx.core.content.ContextCompat;
@@ -59,20 +58,21 @@ public class MainActivity extends AppCompatActivity {
             f.mkfile("save0.txt");
         }
         final FileHandler saveFile = new FileHandler(new File(f.getPath() + "/save0.txt"));
-        
-        switch(saveFile.getFileContent(1)){
-            case "R":{
-                theme = Themes.RED;
-                break;
-            }
-            case "G":{
-                theme = Themes.GREEN;
-                break;
-            }
-            default:{
-                theme = Themes.BLUE;
-            }
-        }
+//
+//        switch(saveFile.getFileContent(1)){
+//            case "R":{
+//                theme = Themes.RED;
+//                break;
+//            }
+//            case "G":{
+//                theme = Themes.GREEN;
+//                break;
+//            }
+//            default:{
+//                theme = Themes.BLUE;
+//            }
+//        }
+        theme = Themes.BLUE;
         
 //        switch(saveFile.getFileContent(2)){
 //            case "":{

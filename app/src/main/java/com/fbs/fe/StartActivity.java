@@ -4,10 +4,10 @@ import android.os.*;
 import android.widget.*;
 import android.view.*;
 import android.content.Intent;
-import android.telephony.SmsManager;
 import androidx.appcompat.app.AppCompatActivity;
+import com.fbs.fe.util.FileHandler;
+
 import java.io.File;
-import java.io.IOException;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -28,8 +28,8 @@ public class StartActivity extends AppCompatActivity {
     final EditText pathSelector = (EditText) findViewById(R.id.pathSelector);
     try{
         pathSelector.setText(
-            new FileInformative(new File("/storage/emulated/0/com.fbs.fe/files/saves/save0.txt")).getFileContent(2) == null ? "/storage/emulated/0" :
-            new FileInformative(new File("/storage/emulated/0/com.fbs.fe/files/saves/save0.txt")).getFileContent(2));
+            new FileHandler(new File("/storage/emulated/0/com.fbs.fe/files/saves/save0.txt")).getFileContent(2) == null ? "/storage/emulated/0" :
+            new FileHandler(new File("/storage/emulated/0/com.fbs.fe/files/saves/save0.txt")).getFileContent(2));
     }catch(ArrayIndexOutOfBoundsException ex){
         ex.printStackTrace();
     }
