@@ -24,16 +24,13 @@
                 android:orientation="horizontal"
                 android:id="@+id/topPlane1">
 
-            <RelativeLayout
-                 android:layout_height="wrap_content"
-                 android:layout_width="match_parent"
-                 android:layout_marginLeft="10dp"
-                 android:layout_weight="30"
-                 android:layout_marginTop="50dp">
-
                 <EditText tools:ignore="Deprecated"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="grgbuyrtbugbryubgyb"
+                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="95"
                     android:scrollbarStyle="insideInset"
                     android:editable="true"
                     android:textSize="12sp"
@@ -48,25 +45,21 @@
                     android:backgroundTint="@color/viewBckgColor.lightGrey"
                     android:textCursorDrawable="@drawable/cursor"
                     android:inputType="text"
+                    android:textColor="@color/seekBarProgressColor"
                     android:overScrollMode="always"
                     android:id="@+id/pathView" />
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp">
                 <TextView
+                     android:layout_marginTop="30dp"
+                     android:layout_marginLeft="25dp"
                      android:layout_height="40dp"
                      android:layout_width="wrap_content"
                      android:gravity="center"
                      android:textSize="18sp"
+                     android:textColor="@color/seekBarProgressColor"
                      android:maxLines="1"
-                     android:text="FIND"
+                     android:text="@string/en_find"
                      android:id="@+id/findButton" />
-
-            </RelativeLayout>
 
         </LinearLayout>
 
