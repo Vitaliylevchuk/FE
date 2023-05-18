@@ -112,7 +112,7 @@ public class FileHandler {
         return File.listRoots();
     }
 
-    public String[] getEditedName(int index, int folderLength, FileHandler targetFolder){
+    public String[] getEditedName(int index, int folderLength, FileHandler targetFolder, boolean needFolderInfo, boolean needFileInfo){
         //
         String fileName = targetFolder.getFromTargetLib()[index].getName();
         System.out.println(fileName);
@@ -142,40 +142,48 @@ public class FileHandler {
         }
         //
 
-        if(targetFolder.getFromTargetLib()[index].isFile()){
-            sizeDob = targetFolder.getFromTargetLib()[index].length();
-            sizeNum = String.valueOf(sizeDob);
+        if(needFileInfo) {
+            if (targetFolder.getFromTargetLib()[index].isFile()) {
+                sizeDob = targetFolder.getFromTargetLib()[index].length();
+                sizeNum = String.valueOf(sizeDob);
 
-            if(sizeDob >= (1024*1024*1024)*0.8){
-                sizeNum = df.format(sizeDob / (1024 * 1024 * 1024));
-                sizeType = "gb";
+                if (sizeDob >= (1024 * 1024 * 1024) * 0.8) {
+                    sizeNum = df.format(sizeDob / (1024 * 1024 * 1024));
+                    sizeType = "gb";
+                } else if (sizeDob >= (1024 * 1024) * 0.8) {
+                    sizeNum = df.format(sizeDob / (1024 * 1024));
+                    sizeType = "mb";
+                } else if (sizeDob >= 1024 * 0.8) {
+                    sizeNum = df.format(sizeDob / 1024);
+                    sizeType = "kb";
+                } else {
+                    sizeNum = df.format(sizeDob);
+                    sizeType = "b";
+                }
+                System.out.println("file!");
+                info = sizeNum + " " + sizeType;
+                System.out.println("all ok!");
             }
-            else if(sizeDob >= (1024*1024)*0.8){
-                sizeNum = df.format(sizeDob / (1024 * 1024));
-                sizeType = "mb";
-            }
-            else if (sizeDob >= 1024*0.8){
-                sizeNum = df.format(sizeDob / 1024);
-                sizeType = "kb";
-            }
-            else {
-                sizeNum = df.format(sizeDob);
-                sizeType = "b";
-            }
-            System.out.println("file!");
-            info = sizeNum + " " + sizeType;
-            System.out.println("all ok!");
+        }
+        else {
+            info = "";
         }
 
-        else if(MainActivity.targetFolder.getFromTargetLib()[index].isDirectory()){
-            try {
-                elementsIn = new File(targetFolder.getPath() + "/" + fileName).listFiles().length;
-                info = "(" + elementsIn + ")";
-                margin = "";
-            }catch (NullPointerException ex){
-                info = "(Not access)";
-                margin = "";
+        if(needFolderInfo) {
+            if (MainActivity.targetFolder.getFromTargetLib()[index].isDirectory()) {
+                try {
+                    elementsIn = new File(targetFolder.getPath() + "/" + fileName).listFiles().length;
+                    info = "(" + elementsIn + ")";
+                    margin = "";
+                } catch (NullPointerException ex) {
+                    info = "(Not access)";
+                    margin = "";
+                }
             }
+        }
+        else {
+            info = "";
+            margin = "";
         }
         returnS[0] = ("  " + typeSimbol + " " + fileName + margin + info);
         System.out.println(fileName + " " + returnS[0]);
