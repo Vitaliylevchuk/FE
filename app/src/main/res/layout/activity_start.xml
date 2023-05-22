@@ -69,23 +69,23 @@
             android:orientation="horizontal"
             android:gravity="right">
 
-        <androidx.appcompat.widget.SwitchCompat
-                android:layout_width="40dp"
+        <androidx.appcompat.widget.SwitchCompat tools:ignore="RtlHardcoded"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:rotation="90"
-                app:trackTint="@color/viewBckgColor.lightGrey"
-                app:thumbTint="@color/viewBckgColor.grey"
-                android:id="@+id/folder_switch" tools:ignore="RtlHardcoded"/>
+                app:thumbTint="@color/viewBckgColor.lightGrey"
+                app:trackTint="@color/lightGrey"
+                android:id="@+id/folder_switch"/>
 
-        <androidx.appcompat.widget.SwitchCompat
-                android:layout_width="40dp"
+        <androidx.appcompat.widget.SwitchCompat tools:ignore="RtlHardcoded"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:rotation="90"
-                app:trackTint="@color/viewBckgColor.lightGrey"
-                app:thumbTint="@color/viewBckgColor.grey"
-                android:id="@+id/file_switch" tools:ignore="RtlHardcoded"/>
+                app:thumbTint="@color/viewBckgColor.lightGrey"
+                app:trackTint="@color/lightGrey"
+                android:id="@+id/file_switch"/>
 
     </LinearLayout>
 

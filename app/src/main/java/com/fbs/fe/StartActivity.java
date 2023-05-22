@@ -5,19 +5,32 @@ import android.widget.*;
 import android.view.*;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import com.fbs.fe.util.FileHandler;
+import com.fbs.fe.util.Variables;
 
 import java.io.File;
 
 public class StartActivity extends AppCompatActivity {
 
-  public static boolean t = true;
-  public int a = 0;
+    public static boolean t = true;
+    public int a = 0;
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_start);
+
+    final SwitchCompat folderSwitch = findViewById(R.id.folder_switch);
+    final SwitchCompat fileSwitch = findViewById(R.id.file_switch);
+
+    folderSwitch.setOnClickListener(view -> {
+        Variables.needFolderInfo = folderSwitch.isActivated();
+    });
+
+    fileSwitch.setOnClickListener(view -> {
+        Variables.needFolderInfo = fileSwitch.isActivated();
+    });
 
     //        seekBar.setOnTouchListener(new View.OnTouchListener(){
     //            @Override
@@ -35,7 +48,7 @@ public class StartActivity extends AppCompatActivity {
     }
         final Button button = (Button) findViewById(R.id.button123);
         final Button button1 = (Button) findViewById(R.id.button456);
-            
+
     button.setOnClickListener(
         new View.OnClickListener() {
           @Override
@@ -62,7 +75,8 @@ public class StartActivity extends AppCompatActivity {
             toast.show();
           }
         });
-    
-    
-  }
+
+
+    }
+
 }

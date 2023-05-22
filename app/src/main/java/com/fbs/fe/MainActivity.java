@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
             Variables.names = new String[folderLength];
             names = Variables.names;
             for(int i = 0;i < folderLength;i++){
-                names[i] = targetFolder.getEditedName(i, folderLength, targetFolder, true, true)[0];
+                names[i] = targetFolder.getEditedName(i, folderLength, targetFolder, Variables.needFolderInfo, Variables.needFileInfo)[0];
             }
            // Arrays.sort(names);
         }
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
             RelativeLayout rl = new RelativeLayout(MainActivity.this);
             rl.setLayoutParams(folderParams);
             
-            configuringTextView(tv, layoutParams, saveFile, themeFontColor, i, targetFolder.getEditedName(i, folderLength, targetFolder, true, true)[1]);
+            configuringTextView(tv, layoutParams, saveFile, themeFontColor, i, targetFolder.getEditedName(i, folderLength, targetFolder, Variables.needFolderInfo, Variables.needFileInfo)[1]);
             tv.setText(names[i]);
             
             rl.addView(tv);
@@ -338,7 +338,7 @@ public class MainActivity extends AppCompatActivity {
                                 names = new String[fl];
                                 int i = 0;
                                 while (i < MainActivity.seekBar.getMax()){
-                                    names[i] = targetFolder.getEditedName(i, fl, targetFolder, true, true)[0];
+                                    names[i] = targetFolder.getEditedName(i, fl, targetFolder, Variables.needFolderInfo, Variables.needFileInfo)[0];
                                     MainActivity.seekBar.setProgress(MainActivity.seekBar.getProgress() + i);
                                     i ++;
                                 }

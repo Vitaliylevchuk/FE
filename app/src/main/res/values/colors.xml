@@ -25,5 +25,9 @@
     <color name="viewFontColor.blue">#2887C6</color>
     <color name="viewFontColor.red">#E32828</color>
     <color name="seekBarProgressColor">#74FEFF</color>
+    <color name="yellow">#FFE81B</color>
+    <color name="darkBlue">#CD00D3C1</color>
+    <color name="lightGrey">#B9555555</color>
+    <color name="lightLightGrey">#A8757575</color>
 
 </resources>
