@@ -69,22 +69,22 @@
             android:orientation="horizontal"
             android:gravity="right">
 
-        <androidx.appcompat.widget.SwitchCompat tools:ignore="RtlHardcoded"
+        <androidx.appcompat.widget.SwitchCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:rotation="90"
-                app:thumbTint="@color/viewBckgColor.lightGrey"
-                app:trackTint="@color/lightGrey"
+                android:thumb="@drawable/switch_thumb"
+                app:track="@drawable/switch_track"
                 android:id="@+id/folder_switch"/>
 
-        <androidx.appcompat.widget.SwitchCompat tools:ignore="RtlHardcoded"
+        <androidx.appcompat.widget.SwitchCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false"
+                android:checked="true"
                 android:rotation="90"
-                app:thumbTint="@color/viewBckgColor.lightGrey"
-                app:trackTint="@color/lightGrey"
+                android:thumb="@drawable/switch_thumb"
+                app:track="@drawable/switch_track"
                 android:id="@+id/file_switch"/>
 
     </LinearLayout>

@@ -24,14 +24,6 @@ public class StartActivity extends AppCompatActivity {
     final SwitchCompat folderSwitch = findViewById(R.id.folder_switch);
     final SwitchCompat fileSwitch = findViewById(R.id.file_switch);
 
-    folderSwitch.setOnClickListener(view -> {
-        Variables.needFolderInfo = folderSwitch.isActivated();
-    });
-
-    fileSwitch.setOnClickListener(view -> {
-        Variables.needFolderInfo = fileSwitch.isActivated();
-    });
-
     //        seekBar.setOnTouchListener(new View.OnTouchListener(){
     //            @Override
     //            public boolean onTouch(View v, MotionEvent event) {
@@ -49,32 +41,28 @@ public class StartActivity extends AppCompatActivity {
         final Button button = (Button) findViewById(R.id.button123);
         final Button button1 = (Button) findViewById(R.id.button456);
 
-    button.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View arg0) {
-            Intent intent = new Intent(StartActivity.this, MainActivity.class);
-            startActivity(intent);
-            MainActivity.setPath(pathSelector.getText().toString());
+    button.setOnClickListener(arg0 -> {
+        Variables.needFolderInfo = folderSwitch.isActivated();
+        Variables.needFileInfo = fileSwitch.isActivated();
+        Intent intent = new Intent(StartActivity.this, MainActivity.class);
+        startActivity(intent);
+        MainActivity.setPath(pathSelector.getText().toString());
 
-            Toast toast = Toast.makeText(StartActivity.this, "File Explorer", Toast.LENGTH_LONG);
-            toast.show();
-          }
-        });
+        Toast toast = Toast.makeText(StartActivity.this, "File Explorer", Toast.LENGTH_LONG);
+        toast.show();
+    });
 
-    button1.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View arg0) {
-            Intent intent = new Intent(StartActivity.this, MainActivity.class);
-            MainActivity.setPath(MainActivity.startPath);
-            MainActivity.loadTargetFolder();
-            startActivity(intent);
+    button1.setOnClickListener(arg0 -> {
+        Variables.needFolderInfo = folderSwitch.isChecked();
+        Variables.needFileInfo = fileSwitch.isChecked();
+        Intent intent = new Intent(StartActivity.this, MainActivity.class);
+        MainActivity.setPath(MainActivity.startPath);
+        MainActivity.loadTargetFolder();
+        startActivity(intent);
 
-            Toast toast = Toast.makeText(StartActivity.this, "File Explorer", Toast.LENGTH_LONG);
-            toast.show();
-          }
-        });
+        Toast toast = Toast.makeText(StartActivity.this, "File Explorer", Toast.LENGTH_LONG);
+        toast.show();
+    });
 
 
     }
