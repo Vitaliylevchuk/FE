@@ -66,25 +66,24 @@
             android:paddingRight="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:gravity="right">
 
-        <androidx.appcompat.widget.SwitchCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:rotation="90"
-                android:thumb="@drawable/switch_thumb"
-                app:track="@drawable/switch_track"
-                android:id="@+id/folder_switch"/>
-
-        <androidx.appcompat.widget.SwitchCompat
+        <Switch tools:ignore="UseSwitchCompatOrMaterialXml"
+                android:layout_marginBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:rotation="90"
                 android:thumb="@drawable/switch_thumb"
-                app:track="@drawable/switch_track"
+                android:track="@drawable/switch_track"
+                android:id="@+id/folder_switch"/>
+
+        <Switch tools:ignore="UseSwitchCompatOrMaterialXml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/switch_thumb"
+                android:track="@drawable/switch_track"
+                android:checked="true"
                 android:id="@+id/file_switch"/>
 
     </LinearLayout>

@@ -21,8 +21,8 @@ public class StartActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_start);
 
-    final SwitchCompat folderSwitch = findViewById(R.id.folder_switch);
-    final SwitchCompat fileSwitch = findViewById(R.id.file_switch);
+    final Switch folderSwitch = findViewById(R.id.folder_switch);
+    final Switch fileSwitch = findViewById(R.id.file_switch);
 
     //        seekBar.setOnTouchListener(new View.OnTouchListener(){
     //            @Override

@@ -2,9 +2,13 @@ package com.fbs.fe;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.*;
 import java.text.DecimalFormat;
+
+import android.provider.Settings;
 import android.view.*;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int STORAGE_PERMISSION_CODE = 360;
     public static String[] names;
-    public static String startPath = "/storage/emulated/0";
+    public static final String startPath = "/storage/emulated/0";
     public String d;
     public static int progress = 0;
     public byte animSeted = 2;
@@ -245,9 +249,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkPermission(String permission, int requestCode){
         if(ContextCompat.checkSelfPermission(MainActivity.this, permission) == PackageManager.PERMISSION_DENIED){
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission}, requestCode);
+            if (permission == Manifest.permission.WRITE_EXTERNAL_STORAGE || permission == Manifest.permission.READ_EXTERNAL_STORAGE || permission == Manifest.permission.MANAGE_EXTERNAL_STORAGE) {
+                startActivityForResult(new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION).setData(Uri.parse(String.format("package:%s", getPackageName()))), requestCode);
+            }
+            else {
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission}, requestCode);
+            }
+            if(ContextCompat.checkSelfPermission(MainActivity.this, permission) == PackageManager.PERMISSION_DENIED) {
+                Variables.permissionsCheckedSuccessful = true;
+            }
             Variables.permissionsChecked = true;
-            Variables.permissionsCheckedSuccessful = true;
             //ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission}, requestCode);
         }
         else{
